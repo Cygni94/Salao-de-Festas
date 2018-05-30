@@ -8,5 +8,6 @@ struct typedef Cliente {
 } Cliente;
 
 int main() {
+    Cliente cliente;
     return 0;
 }
