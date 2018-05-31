@@ -9,6 +9,7 @@ typedef struct Cliente {
 
 int main() {
     int opcao;
+    int i = 0;
 
     printf("####SALAO DE FESTAS####\n#####PATATI PATATA#####\n\n");
     //Menu principal
@@ -19,12 +20,16 @@ int main() {
     //Submenu 9 - Relatorios de festas
     scanf("%d", &opcao);
     switch (opcao) {
-case 1:
+    case 1:
 
-    break;
+        Cliente i;
+        printf("Digite o nome do cliente ");
+        gets(i.nome);
+        printf("Digite o endereco do cliente: ");
+        printf("Digite o telefone do cliente: ");
+        printf("Digite a data de nascimento do cliente: ");
+
+        break;
     }
-
-
-
     return 0;
 }
