@@ -17,16 +17,17 @@ int main() {
 
 void cadastroCliente () {
     FILE *arquivo;
-    int i;
+    unsigned long int codigo;
     char nome[100], endereco[100];
-    arquivo = fopen("nome.txt","w");
+    arquivo = fopen("nome.txt","a+");
     printf("***** Cadastro de clientes *****\n\n");
+    codigo = rand() % 100;
     printf("Digite o nome:");
     gets(nome);
-    fputs(nome, arquivo);
-    fputs("|",arquivo);
     printf("Digite o endereco:");
     gets(endereco);
+    fputs(nome, arquivo);
+    fputs("|",arquivo);
     fputs(endereco, arquivo);
     fputs("|",arquivo);
     fputs("\n", arquivo);
