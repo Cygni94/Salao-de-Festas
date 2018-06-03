@@ -16,21 +16,22 @@ typedef struct Cliente {
 
 void cadastroCliente();
 void Pesquisa();
+int linhaDisponivel(FILE*);
 
 int main() {
-//    cadastroCliente();
-    Pesquisa();
+    cadastroCliente();
+//    Pesquisa();
     printf("retornou e fim");
     printf("\n\nddd");
     return 0;
 }
 
 void cadastroCliente () {
-    FILE *arquivo;
+    FILE *arquivo = fopen("clientes.txt","a+");
     unsigned long int codigo, telefone, dataNasc;
     char nome[100], endereco[100];
-    arquivo = fopen("clientes.txt","a+");
     printf("***** Cadastro de clientes *****\n\n");
+    linhaDisponivel(arquivo);
     codigo = rand() % 100;
     printf("Digite o nome:");
     gets(nome);
@@ -55,8 +56,7 @@ void cadastroCliente () {
 }
 
 void Pesquisa() {
-    FILE *arquivo;
-    arquivo = fopen("clientes.txt","r");
+    FILE *arquivo = fopen("clientes.txt","r");
     char nome[] = "europe";
     while(fscanf(arquivo, "%s", "nome") != EOF) {
         if(strcmp(nome, "europe") == 0) {
@@ -64,4 +64,16 @@ void Pesquisa() {
         }
     }
     return;
+}
+
+int linhaDisponivel (FILE* arquivo) {
+    int cont=0;
+    char ch;
+    while (!feof(arquivo)) { /* Enquanto não chegar ao final do arquivo */
+        if (ch == '\n') {
+            ++cont;
+        }
+    }
+    printf("Linha disponivel: %d",cont); /* imprime o caractere lido */
+    return cont;
 }
