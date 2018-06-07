@@ -33,6 +33,7 @@ void cadastroCliente () {
     //Cliente.codigo = rand() % 1000;
 
     Cliente.codigo = linhaDisponivel(arquivo);
+//criar FILE *arquivo GLOBAL
 //comparar código do algoritmo wolf e ver como configurar a funcao linhaDisponivel. Nao usarei rand.
 
     printf("***** Cadastro de clientes *****\n\n");
@@ -55,7 +56,9 @@ void cadastroCliente () {
     fprintf(arquivo, "%lu", Cliente.dataNasc);
     fputs("\n", arquivo);
     fclose(arquivo);
-    return;
+
+    printf("O cliente %s foi registrado com sucesso. Codigo do cliente: %lu\n", Cliente.nome, Cliente.codigo);
+    return ;
 }
 
 void Pesquisa() {
@@ -69,10 +72,10 @@ void Pesquisa() {
     return;
 }
 
-int linhaDisponivel (FILE* arquivo) {
+int linhaDisponivel (FILE *arquivo) {
     int cont=0;
     char ch;
-    while (!feof(arquivo)) { /* Enquanto não chegar ao final do arquivo */
+    while (!eof(arquivo)) { /* Enquanto não chegar ao final do arquivo */
         if (ch == '\n') {
             ++cont;
         }
