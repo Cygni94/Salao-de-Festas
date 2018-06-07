@@ -22,34 +22,37 @@ int main() {
     cadastroCliente();
 //    Pesquisa();
     printf("retornou e fim");
-    printf("\n\nddd");
     return 0;
 }
 
 void cadastroCliente () {
     FILE *arquivo = fopen("clientes.txt","a+");
-    unsigned long int codigo, telefone, dataNasc;
-    char nome[100], endereco[100];
+    novoCliente Cliente;
+    //time_t t;
+    //srand((unsigned) time(&t));
+    //Cliente.codigo = rand() % 1000;
+
+    Cliente.codigo = linhaDisponivel(arquivo);
+//comparar código do algoritmo wolf e ver como configurar a funcao linhaDisponivel. Nao usarei rand.
+
     printf("***** Cadastro de clientes *****\n\n");
-    linhaDisponivel(arquivo);
-    codigo = rand() % 100;
-    printf("Digite o nome:");
-    gets(nome);
-    printf("Digite o endereco:");
-    gets(endereco);
+    printf("Digite o nome: ");
+    gets(Cliente.nome);
+    printf("Digite o endereco: ");
+    gets(Cliente.endereco);
     printf("Digite o telefone(apenas numeros, 8 ou 9 digitos): ");
-    scanf("%lu", &telefone);
+    scanf("%ld", &Cliente.telefone);
     printf("Digite a data de nascimento(apenas numeros): ");
-    scanf("%lu", &dataNasc);
-    fprintf(arquivo, "%lu", codigo);
+    scanf("%ld", &Cliente.dataNasc);
+    fprintf(arquivo, "%ld", Cliente.codigo);
     fputs("|",arquivo);
-    fputs(nome, arquivo);
+    fputs(Cliente.nome, arquivo);
     fputs("|",arquivo);
-    fputs(endereco, arquivo);
+    fputs(Cliente.endereco, arquivo);
     fputs("|",arquivo);
-    fprintf(arquivo, "%lu", telefone);
+    fprintf(arquivo, "%lu", Cliente.telefone);
     fputs("|",arquivo);
-    fprintf(arquivo, "%lu", dataNasc);
+    fprintf(arquivo, "%lu", Cliente.dataNasc);
     fputs("\n", arquivo);
     fclose(arquivo);
     return;
