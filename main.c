@@ -20,9 +20,9 @@ int main() {
 }
 
 void cadastroCliente () {
-    arquivo = fopen("clientes.txt","a+");
     novoCliente Cliente;
     Cliente.codigo = linhaDisponivel(1);
+    arquivo = fopen("clientes.txt","a");
 
     printf("***** Cadastro de clientes *****\n\n");
     printf("Digite o nome: ");
@@ -45,7 +45,7 @@ void cadastroCliente () {
     fputs("\n", arquivo);
     fclose(arquivo);
 
-    printf("O cliente %s foi registrado com sucesso. Codigo do cliente: %lu\n", Cliente.nome, Cliente.codigo+1);
+    printf("O cliente %s foi registrado com sucesso. Codigo do cliente: %lu\n", Cliente.nome, Cliente.codigo);
     return ;
 }
 
@@ -54,11 +54,14 @@ int linhaDisponivel (int opcao) {
     char ch;
 
     switch(opcao) {
-        case 1:
+    case 1:
         arquivo = fopen("clientes.txt", "r");
-	   while ((ch=getc(arquivo)) != EOF) {
-		   if (ch == '\n') { ++contadorLinhas; }
-	   }
+        while ((ch=getc(arquivo)) != EOF) {
+            if (ch == '\n') {
+                ++contadorLinhas;
+            }
+        }
+        fclose(arquivo);
         break;
     }
     return contadorLinhas;
