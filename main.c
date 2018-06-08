@@ -1,10 +1,3 @@
-//scanf unsigned long int: https://stackoverflow.com/questions/12147352/format-specifier-for-scanning-long-unsigned-int
-//search string in file: https://www.quora.com/How-do-I-search-from-a-text-file-in-c-language
-//fseek (trocar em aberto para pago): https://www.tutorialspoint.com/c_standard_library/c_function_fseek.htm
-//vetor de struct em C: https://pt.stackoverflow.com/questions/173464/vetor-de-struct-em-c
-//fprintf: https://www.tutorialspoint.com/c_standard_library/c_function_fprintf.htm
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,25 +9,20 @@ typedef struct Cliente {
 
 void cadastroCliente();
 void Pesquisa();
-int linhaDisponivel(FILE*);
+int linhaDisponivel(int);
+
+FILE *arquivo;
 
 int main() {
     cadastroCliente();
-//    Pesquisa();
     printf("retornou e fim");
     return 0;
 }
 
 void cadastroCliente () {
-    FILE *arquivo = fopen("clientes.txt","a+");
+    arquivo = fopen("clientes.txt","a+");
     novoCliente Cliente;
-    //time_t t;
-    //srand((unsigned) time(&t));
-    //Cliente.codigo = rand() % 1000;
-
-    Cliente.codigo = linhaDisponivel(arquivo);
-//criar FILE *arquivo GLOBAL
-//comparar código do algoritmo wolf e ver como configurar a funcao linhaDisponivel. Nao usarei rand.
+    Cliente.codigo = linhaDisponivel(1);
 
     printf("***** Cadastro de clientes *****\n\n");
     printf("Digite o nome: ");
@@ -57,29 +45,21 @@ void cadastroCliente () {
     fputs("\n", arquivo);
     fclose(arquivo);
 
-    printf("O cliente %s foi registrado com sucesso. Codigo do cliente: %lu\n", Cliente.nome, Cliente.codigo);
+    printf("O cliente %s foi registrado com sucesso. Codigo do cliente: %lu\n", Cliente.nome, Cliente.codigo+1);
     return ;
 }
 
-void Pesquisa() {
-    FILE *arquivo = fopen("clientes.txt","r");
-    char nome[] = "europe";
-    while(fscanf(arquivo, "%s", "nome") != EOF) {
-        if(strcmp(nome, "europe") == 0) {
-            printf("Found\n");
-        }
-    }
-    return;
-}
-
-int linhaDisponivel (FILE *arquivo) {
-    int cont=0;
+int linhaDisponivel (int opcao) {
+    int contadorLinhas=0;
     char ch;
-    while (!eof(arquivo)) { /* Enquanto não chegar ao final do arquivo */
-        if (ch == '\n') {
-            ++cont;
-        }
+
+    switch(opcao) {
+        case 1:
+        arquivo = fopen("clientes.txt", "r");
+	   while ((ch=getc(arquivo)) != EOF) {
+		   if (ch == '\n') { ++contadorLinhas; }
+	   }
+        break;
     }
-    printf("Linha disponivel: %d",cont); /* imprime o caractere lido */
-    return cont;
+    return contadorLinhas;
 }

@@ -37,9 +37,6 @@ int main()
 
 		  // Increment line count if new line character
 		   if (ch == '\n') { ++linecount; }
-
-
-
 	   }
 
 	   if (charcount > 0) {

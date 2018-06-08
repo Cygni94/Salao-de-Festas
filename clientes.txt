@@ -1,9 +1,1 @@
 0 | NOME | ENDERECO | TELEFONE | DATA DE NASCIMENTO
-
-41|cccCCC|cCc|33|5
-41|dddddddss|aa|21|11
-516|f|f|4|4
-588|sss|0|9|9
-0|cc|fff|99|99
-0|ff|cc|33|22
-0|vbb|ccxc|3|2
