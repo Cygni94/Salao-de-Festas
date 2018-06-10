@@ -4,20 +4,40 @@
 
 typedef struct Cliente {
     int codigo;
-    char nome[50], endereco[100], telefone[9], dataNasc[8];
+    char nome[50], endereco[100], telefone[10], dataNasc[9];
 } Cliente;
 
-void cadastroCliente();
-void Pesquisa();
+typedef struct Funcionario {
+    int codigo;
+    char nome[50], telefone[10], funcao[21], salario[10], tipo[5];
+} Funcionario;
+
+typedef struct Fornecedor {
+    int codigo;
+    char nome[50], telefone[10], produto[21];
+} Fornecedor;
+
+typedef struct Festa {
+    int codigo, codCliente, qConvidados, horario;
+    char data[9], diaSemana[15], tema[30];
+} Festa;
+
+typedef struct Contrato {
+    int codigo, codFesta, valorTotal, desconto, valorFinal;
+    char formaPagto[15], status[5];
+} Contrato;
+
 int definirCodigo(int);
+void cadastroCliente();
+void cadastroFesta();
+int consultaCodCliente();
+void pesquisa();
 
 FILE *arquivo;
 
 int main() {
     int opcao;
     do {
-        system("cls");
-        system("clear");
         printf ("\n ---- SALAO DE FESTAS PATATI PATATA ----\n");
         printf ("\n - Escolha uma opcao abaixo\n");
         printf ("\n - [1] - Cadastrar Cliente");
@@ -42,7 +62,7 @@ int main() {
             //cadastrarFornecedor();
             break;
         case 4:
-            //cadastrarFesta();
+            cadastroFesta();
             break;
         case 5:
             //finalizar();
@@ -89,6 +109,39 @@ void cadastroCliente () {
     return ;
 }
 
+void cadastroFesta() {
+    printf("ok");
+    Festa Festa;
+    Festa.codigo = definirCodigo(4);
+    arquivo = fopen("festas.txt","a");
+
+    printf("***** Cadastro de festas *****\n\n");
+    printf("Digite o nome do cliente: ");
+    Festa.codCliente = consultaCodCliente();
+    /*
+    printf("Digite o endereco: ");
+    gets(Cliente.endereco);
+    printf("Digite o telefone(apenas numeros, 8 ou 9 digitos): ");
+    gets(Cliente.telefone);
+    printf("Digite a data de nascimento(apenas numeros): ");
+    gets(Cliente.dataNasc);
+    fprintf(arquivo, "%d", Cliente.codigo);
+    fputs("|",arquivo);
+    fputs(Cliente.nome, arquivo);
+    fputs("|",arquivo);
+    fputs(Cliente.endereco, arquivo);
+    fputs("|",arquivo);
+    fputs(Cliente.telefone, arquivo);
+    fputs("|",arquivo);
+    fputs(Cliente.dataNasc, arquivo);
+    fputs("\n", arquivo);
+    fclose(arquivo);
+
+    printf("O cliente %s foi registrado com sucesso. Codigo do cliente: %d\n", Cliente.nome, Cliente.codigo);
+    */
+    return ;
+}
+
 int definirCodigo (int opcao) {
     int contadorLinhas = 0;
     char ch;
@@ -96,18 +149,24 @@ int definirCodigo (int opcao) {
     switch(opcao) {
     case 1:
         arquivo = fopen("clientes.txt", "r");
-        while ((ch=getc(arquivo)) != EOF) {
-            if (ch == '\n') {
-                ++contadorLinhas;
-            }
-        }
-        fclose(arquivo);
+        break;
+    case 4:
+        arquivo = fopen("festas.txt", "r");
         break;
     }
+
+    ch = getc(arquivo);
+    while (ch != EOF) {
+        if (ch == '\n') {
+            ++contadorLinhas;
+        }
+    }
+    fclose(arquivo);
+
     return contadorLinhas;
 }
 
-void pesquisa(int tipoCadastro) {
+/* void pesquisa(int tipoCadastro) {
 
     int contador = 0;
 
@@ -130,9 +189,6 @@ void pesquisa(int tipoCadastro) {
     }
 
     FILE *arquivo = fopen(nomeArquivo,"r");
-
-    system("cls");
-    system("clear");
 
     printf("--------Buscando---------\n");
 
@@ -158,4 +214,30 @@ void pesquisa(int tipoCadastro) {
     system("pause");
 
     fclose(arquivo);
+} */
+
+int consultaCodCliente() {
+    arquivo = fopen("clientes.txt", "r");
+
+    char    ch = getc(arquivo), nomeCliente[50];
+    int    i = 0, contadorLinhas, codCliente;
+
+    printf("Digite o nome do cliente: ");
+    gets(nomeCliente);
+
+    while (ch != EOF)  {
+        if (ch == '\n') {
+            ++contadorLinhas;
+            i = 0;
+        } else if (ch == nomeCliente[i]) {
+            i++;
+            if (i == sizeof (nomeCliente)) {
+                codCliente = contadorLinhas;
+            }
+        }
+
+    }
+    fclose(arquivo);
+
+    return codCliente;
 }
