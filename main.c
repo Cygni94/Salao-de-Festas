@@ -3,54 +3,94 @@
 #include <string.h>
 
 typedef struct Cliente {
-    long int codigo, telefone, dataNasc;
-    char nome[50], endereco[100];
-} novoCliente;
+    int codigo;
+    char nome[50], endereco[100], telefone[9], dataNasc[8];
+} Cliente;
 
 void cadastroCliente();
 void Pesquisa();
-int linhaDisponivel(int);
+int definirCodigo(int);
 
 FILE *arquivo;
 
 int main() {
-    cadastroCliente();
-    printf("retornou e fim");
+    int opcao;
+    do {
+        system("cls");
+        system("clear");
+        printf ("\n ---- SALAO DE FESTAS PATATI PATATA ----\n");
+        printf ("\n - Escolha uma opcao abaixo\n");
+        printf ("\n - [1] - Cadastrar Cliente");
+        printf ("\n - [2] - Cadastrar Funcionario");
+        printf ("\n - [3] - Cadastrar Fornecedor");
+        printf ("\n - [4] - Cadastrar Festa");
+        printf ("\n - [5] - Fazer orcamento");
+        printf ("\n - [6] - Atualizar status de contrato");
+        printf ("\n - [7] - Pesquisar cadastros");
+        printf ("\n - [8] - Exibir festas contratadas");
+        printf ("\n - [9] - Pesquisar festas por data");
+        printf ("\n - [10] - SAIR\n");
+        scanf("%d", &opcao);
+        switch (opcao) {
+        case 1:
+            cadastroCliente();
+            break;
+        case 2:
+            //pesquisar(CLIENTE, "Rennan");
+            break;
+        case 3:
+            //cadastrarFornecedor();
+            break;
+        case 4:
+            //cadastrarFesta();
+            break;
+        case 5:
+            //finalizar();
+            break;
+        case 6:
+            //exibirPesquisa();
+            break;
+        default:
+            printf ("\n Opcao errada...\n");
+            break;
+        }
+    } while (opcao != 0);
     return 0;
 }
 
 void cadastroCliente () {
-    novoCliente Cliente;
-    Cliente.codigo = linhaDisponivel(1);
+    Cliente Cliente;
+    Cliente.codigo = definirCodigo(1);
     arquivo = fopen("clientes.txt","a");
 
     printf("***** Cadastro de clientes *****\n\n");
     printf("Digite o nome: ");
     gets(Cliente.nome);
+    gets(Cliente.nome);
     printf("Digite o endereco: ");
     gets(Cliente.endereco);
     printf("Digite o telefone(apenas numeros, 8 ou 9 digitos): ");
-    scanf("%ld", &Cliente.telefone);
+    gets(Cliente.telefone);
     printf("Digite a data de nascimento(apenas numeros): ");
-    scanf("%ld", &Cliente.dataNasc);
-    fprintf(arquivo, "%ld", Cliente.codigo);
+    gets(Cliente.dataNasc);
+    fprintf(arquivo, "%d", Cliente.codigo);
     fputs("|",arquivo);
     fputs(Cliente.nome, arquivo);
     fputs("|",arquivo);
     fputs(Cliente.endereco, arquivo);
     fputs("|",arquivo);
-    fprintf(arquivo, "%lu", Cliente.telefone);
+    fputs(Cliente.telefone, arquivo);
     fputs("|",arquivo);
-    fprintf(arquivo, "%lu", Cliente.dataNasc);
+    fputs(Cliente.dataNasc, arquivo);
     fputs("\n", arquivo);
     fclose(arquivo);
 
-    printf("O cliente %s foi registrado com sucesso. Codigo do cliente: %lu\n", Cliente.nome, Cliente.codigo);
+    printf("O cliente %s foi registrado com sucesso. Codigo do cliente: %d\n", Cliente.nome, Cliente.codigo);
     return ;
 }
 
-int linhaDisponivel (int opcao) {
-    int contadorLinhas=0;
+int definirCodigo (int opcao) {
+    int contadorLinhas = 0;
     char ch;
 
     switch(opcao) {
@@ -65,4 +105,57 @@ int linhaDisponivel (int opcao) {
         break;
     }
     return contadorLinhas;
+}
+
+void pesquisa(int tipoCadastro) {
+
+    int contador = 0;
+
+    char *nomeArquivo;
+
+    Cliente Cliente;
+
+    char dados[1024] = {0};
+
+    switch(tipoCadastro) {
+    case 1:
+        nomeArquivo = "clientes.txt";
+        break;
+    case 2:
+        nomeArquivo = "funcionario.txt";
+        break;
+    case 3:
+        nomeArquivo = "fornecedor.txt";
+        break;
+    }
+
+    FILE *arquivo = fopen(nomeArquivo,"r");
+
+    system("cls");
+    system("clear");
+
+    printf("--------Buscando---------\n");
+
+    while(fgets(dados, sizeof(dados), arquivo) != NULL) {
+        scanf(dados, "%s\t%[^\t]\t%[^\t]%s\t%s", Cliente.codigo, Cliente.nome, Cliente.endereco, Cliente.telefone, Cliente.dataNasc);
+        if(strstr(Cliente.nome, dado) != NULL ) {
+            printf("\n");
+            printf("Codigo: %s", Cliente.codigo);
+            printf("\n");
+            printf("Nome: %s", Cliente.nome);
+            printf("\n");
+            printf("Endereco: %s", Cliente.endereco);
+            printf("\n");
+            printf("Telefone: %s", Cliente.telefone);
+            printf("\n");
+            printf("Data de nascimento: %s", Cliente.data);
+
+            contador++;
+        }
+    }
+
+    printf("\n\nForam encontrados %i registros.\n", contador);
+    system("pause");
+
+    fclose(arquivo);
 }
