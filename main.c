@@ -31,6 +31,7 @@ int definirCodigo(int);
 void cadastroCliente();
 void cadastroFesta();
 int consultaCodCliente();
+char agendarFesta();
 void pesquisa();
 
 FILE *arquivo;
@@ -70,11 +71,13 @@ int main() {
         case 6:
             //exibirPesquisa();
             break;
+        case 10:
+            break;
         default:
             printf ("\n Opcao errada...\n");
             break;
         }
-    } while (opcao != 0);
+    } while (opcao != 10);
     return 0;
 }
 
@@ -110,19 +113,16 @@ void cadastroCliente () {
 }
 
 void cadastroFesta() {
-    printf("ok");
     Festa Festa;
     Festa.codigo = definirCodigo(4);
     arquivo = fopen("festas.txt","a");
 
     printf("***** Cadastro de festas *****\n\n");
-    printf("Digite o nome do cliente: ");
     Festa.codCliente = consultaCodCliente();
-    /*
-    printf("Digite o endereco: ");
-    gets(Cliente.endereco);
-    printf("Digite o telefone(apenas numeros, 8 ou 9 digitos): ");
-    gets(Cliente.telefone);
+    printf("Digite a quantidade de convidados: ");
+    gets(Festa.qConvidados);
+    printf("Informe a data: ");
+    Festa.data = agendarFesta();
     printf("Digite a data de nascimento(apenas numeros): ");
     gets(Cliente.dataNasc);
     fprintf(arquivo, "%d", Cliente.codigo);
@@ -155,8 +155,7 @@ int definirCodigo (int opcao) {
         break;
     }
 
-    ch = getc(arquivo);
-    while (ch != EOF) {
+    while ((ch = getc(arquivo)) != EOF) {
         if (ch == '\n') {
             ++contadorLinhas;
         }
@@ -217,26 +216,32 @@ int definirCodigo (int opcao) {
 } */
 
 int consultaCodCliente() {
-    arquivo = fopen("clientes.txt", "r");
-
-    char    ch = getc(arquivo), nomeCliente[50];
-    int    i = 0, contadorLinhas, codCliente;
+    char ch, nomeCliente[50], comparador[50];
+    int i = 0, contadorLinhas = 0, codCliente = 0, tamNome=0;
 
     printf("Digite o nome do cliente: ");
     gets(nomeCliente);
+    gets(nomeCliente);
 
-    while (ch != EOF)  {
-        if (ch == '\n') {
-            ++contadorLinhas;
-            i = 0;
-        } else if (ch == nomeCliente[i]) {
+    tamNome = strlen(nomeCliente);
+
+    printf("tamNome %d\n\n", tamNome);
+
+    arquivo = fopen("clientes.txt", "r");
+    while ((ch = getc(arquivo)) != EOF)  {
+        if (ch == nomeCliente[i]) {
+            comparador[i] = ch;
             i++;
-            if (i == sizeof (nomeCliente)) {
-                codCliente = contadorLinhas;
-            }
         }
-
+        if (tamNome == i) {
+        break;
+        } else if (ch == '\n') {
+            i=0;
+            contadorLinhas++;
+        }
     }
+    codCliente = contadorLinhas;
+
     fclose(arquivo);
 
     return codCliente;
