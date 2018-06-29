@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="assets/js/fontawesome.js"></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Manutenção Preventiva</title>
+</head>
+
+<body>
+  <header class="container">
+    <nav class="navbar navbar-expand-md">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand">Auto Assist</a>
+
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="ml-auto navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link">Veículos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Oficinas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <span class="user__icon">
+                <i class="fas fa-user"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="dashboard container">
+    <section id="dados-usuario" class="dashboard__userInfo row">
+      <div class="col-md-4">
+        <h1>Cristiano Coelho</h1>
+      </div>
+    </section>
+    <hr>
+    <section class="dashboard__VeiculosList row">
+      <div class="VeiculosList__item card col-md-3">
+        <img class="card-img-top" src="./assets/img/fazer250_azul.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Factor 125i ED</h5>
+          <h6>Yamaha</h6>
+
+          <a class="btn btn-dark">
+            <i class="fas fa-filter"></i>
+          </a>
+          <a class="btn btn-dark">
+            <i class="fas fa-clipboard-check"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{
+    "name": "template",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "gulp": "gulp"
+    },
+    "author": "Cristiano Coelho",
+    "license": "ISC",
+    "devDependencies": {
+        "browser-sync": "^2.24.5",
+        "gulp": "^3.9.1",
+        "gulp-sass": "^4.0.1",
+        "gulp-wait": "0.0.2"
+    },
+    "dependencies": {
+        "bootstrap": "^4.1.1",
+        "jquery": "^1.12.4",
+        "popper.js": "^1.14.3"
+    }
+}
