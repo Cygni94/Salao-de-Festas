@@ -1,0 +1,7 @@
+- Home(Dashboard):
+    Próximas festas
+    Calendário
+- Cadastro de clientes
+- Cadastro de Orçamentos
+    Gerador de contratos
+- Cadastro de funcionários

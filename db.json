@@ -1,0 +1,43 @@
+{
+    "clientes": [
+        {
+            "id": "",
+            "nome": "",
+            "endereço": "",
+            "telefone": "",
+            "dataNasc": ""
+        }
+    ],
+    "funcionarios": [
+        {
+            "id": "",
+            "nome": "",
+            "telefone": "",
+            "funcao": "",
+            "salario": "",
+            "tipo": ""
+        }
+    ],
+    "festas": [
+        {
+            "id": "",
+            "convidados": "",
+            "data": "",
+            "diaSemana": "",
+            "horario": "",
+            "tema": "",
+            "idCliente": ""
+        }
+    ],
+    "contratos": [
+        {
+            "id": "",
+            "valorTotal": "",
+            "desconto": "",
+            "valorFinal": "",
+            "formaPagto": "",
+            "status": "",
+            "idFesta": ""
+        }
+    ]
+}
