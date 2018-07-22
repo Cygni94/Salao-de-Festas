@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css?family=Philosopher");
+@media (min-width: 0px) {
+  h1 {
+    font-size: 2rem;
+    font-family: "Philosopher", sans-serif; }
+  h6 {
+    font-size: 0.8rem; }
+  header {
+    margin: 1rem 0.5rem; }
+  .header__brand {
+    text-align: left; }
+  .header__userMenu {
+    text-align: right; } }
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+    font-family: "Philosopher", sans-serif; }
+  h6 {
+    font-size: 1.2rem; }
+  header {
+    margin: 3rem 1.5rem; }
+  .header__brand {
+    padding-left: 3rem; }
+  .header__userMenu {
+    padding-right: 3rem; }
+  .submenu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding-right: 3rem; }
+  .submenu__item {
+    margin: 0 0.75rem;
+    font-size: 2rem; } }
