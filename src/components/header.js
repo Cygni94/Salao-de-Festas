@@ -1,22 +1,45 @@
 import React from "react";
 // react-router-dom replaces react-router in package.json dependencies.
 // react-router 4.0.0 is a dependency of react-router-dom
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import App from "../App";
 import CadastroClientes from "../containers/CadastroClientes";
+import CadastroFuncionario from "../containers/CadastroFuncionario";
+import Home from "../containers/Home";
 
-const header = () => {
+const Header = () => {
     return (
         <Router>
-            <App>
+            <div>
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/clientes/cadastro">Cadastrar Cliente</Link>
+                    </li>
+                    <li>
+                        <Link to="/funcionarios/cadastro">
+                            Cadastrar Funcionário
+                        </Link>
+                    </li>
+                </ul>
+
+                <hr />
                 <Switch>
+                    <Route exact path="/" component={Home} />
                     <Route
                         exact
                         path="/clientes/cadastro"
                         component={CadastroClientes}
                     />
+                    <Route
+                        exact
+                        path="/funcionarios/cadastro"
+                        component={CadastroFuncionario}
+                    />
                 </Switch>
-            </App>
+            </div>
         </Router>
     );
     // <header>
@@ -69,4 +92,4 @@ const header = () => {
     // </header>
 };
 
-export default header;
+export default Header;
