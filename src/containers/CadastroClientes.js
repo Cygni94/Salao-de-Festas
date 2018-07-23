@@ -33,19 +33,21 @@ class CadastroClientes extends Component {
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                 <h3>Cadastrar novo cliente</h3>
                 <Field
-                    label="Title" // this is a custom prop
-                    name="title"
+                    label="Nome" // this is a custom prop
+                    name="nome"
                     component={this.renderField}
                 />
                 <Field
-                    label="Categories" // this is a custom prop
-                    name="categories"
+                    label="Endereço" // this is a custom prop
+                    name="endereco"
                     component={this.renderField}
                 />
                 <Field
-                    label="Content" // this is a custom prop
-                    name="content"
-                    component={this.renderField}
+                    label="Telefone"
+                    name="phone"
+                    component="input"
+                    type="text"
+                    placeholder="(xx)xxxxx-xxxx"
                 />
                 <button type="submit" className="btn btn-primary">
                     Submit

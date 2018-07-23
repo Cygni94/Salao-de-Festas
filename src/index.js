@@ -11,7 +11,8 @@ import reducers from "./reducers";
 import promise from "redux-promise";
 //os componentes são importados no index.js, não no App.js
 import "bootstrap";
-import App from "./App";
+//import "bootstrap/dist/css/bootstrap.min.css";
+
 import CadastroClientes from "./containers/CadastroClientes";
 import Header from "./components/header";
 
