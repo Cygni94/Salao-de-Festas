@@ -57,7 +57,6 @@ class CadastroClientes extends Component {
                     component={this.renderField}
                     normalize={normalizePhone}
                 />
-                <Field label="Data de nascimento" name="dob" showTime={false} />
                 <button type="submit" className="btn btn-primary">
                     Submit
                 </button>
