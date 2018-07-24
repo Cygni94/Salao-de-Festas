@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import CadastroClientes from "./containers/CadastroClientes";
 import CadastroFuncionario from "./containers/CadastroFuncionario";
 import Home from "./containers/Home";
+import ReactWidgetsForm from "./vendor/ReactWidgetsForm";
 
 export default class App extends Component {
     render() {

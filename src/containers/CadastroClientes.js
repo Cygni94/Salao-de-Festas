@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import { createCliente } from "../actions/clientes";
+import normalizePhone from "../vendor/normalizePhone";
 
 class CadastroClientes extends Component {
     onSubmit(props) {
@@ -12,6 +13,7 @@ class CadastroClientes extends Component {
             this.props.history.push("/");
         });
     }
+
     renderField(field) {
         return (
             <div
@@ -33,22 +35,29 @@ class CadastroClientes extends Component {
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                 <h3>Cadastrar novo cliente</h3>
                 <Field
-                    label="Nome" // this is a custom prop
+                    label="Nome"
                     name="nome"
-                    component={this.renderField}
+                    component={
+                        this.renderField // this is a custom prop
+                    }
                 />
                 <Field
-                    label="Endereço" // this is a custom prop
+                    label="Endereço"
                     name="endereco"
-                    component={this.renderField}
+                    component={
+                        this.renderField // this is a custom prop
+                    }
                 />
                 <Field
                     label="Telefone"
                     name="phone"
                     component="input"
                     type="text"
-                    placeholder="(xx)xxxxx-xxxx"
+                    placeholder="Phone Number"
+                    component={this.renderField}
+                    normalize={normalizePhone}
                 />
+                <Field label="Data de nascimento" name="dob" showTime={false} />
                 <button type="submit" className="btn btn-primary">
                     Submit
                 </button>
