@@ -32,35 +32,39 @@ class CadastroClientes extends Component {
     render() {
         const { handleSubmit } = this.props;
         return (
-            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                <h3>Cadastrar novo cliente</h3>
-                <Field
-                    label="Nome"
-                    name="nome"
-                    component={
-                        this.renderField // this is a custom prop
-                    }
-                />
-                <Field
-                    label="Endereço"
-                    name="endereco"
-                    component={
-                        this.renderField // this is a custom prop
-                    }
-                />
-                <Field
-                    label="Telefone"
-                    name="phone"
-                    component="input"
-                    type="text"
-                    placeholder="Phone Number"
-                    component={this.renderField}
-                    normalize={normalizePhone}
-                />
-                <button type="submit" className="btn btn-primary">
-                    Submit
-                </button>
-            </form>
+            <div className="container">
+                <form
+                    className="col-md-5"
+                    onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                    <h3>Cadastrar novo cliente</h3>
+                    <Field
+                        label="Nome"
+                        name="nome"
+                        component={
+                            this.renderField // this is a custom prop
+                        }
+                    />
+                    <Field
+                        label="Endereço"
+                        name="endereco"
+                        component={
+                            this.renderField // this is a custom prop
+                        }
+                    />
+                    <Field
+                        label="Telefone"
+                        name="phone"
+                        component="input"
+                        type="text"
+                        placeholder="Phone Number"
+                        component={this.renderField}
+                        normalize={normalizePhone}
+                    />
+                    <button type="submit" className="btn btn-primary">
+                        Submit
+                    </button>
+                </form>
+            </div>
         );
     }
 }
