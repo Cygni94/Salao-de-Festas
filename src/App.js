@@ -9,8 +9,10 @@ import CadastroFuncionario from "./containers/CadastroFuncionario";
 import Home from "./containers/Home";
 
 import reducers from "./reducers";
-
 import promise from "redux-promise";
+
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
