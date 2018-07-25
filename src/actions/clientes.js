@@ -17,7 +17,7 @@ export function fetchClientes(state = {}, action) {
 }
 
 export function createCliente(props, cb) {
-    const request = fetch(`${ROOT_URL}/clientes`, {
+    const request = fetch(`${ROOT_URL}/`, {
         method: "POST",
         headers: {
             Accept: "application/json",

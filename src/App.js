@@ -46,7 +46,7 @@ export default class App extends Component {
                                         </li>
                                         <li className="nav-item">
                                             <Link
-                                                to="/clientes/cadastro"
+                                                to="/clientes"
                                                 className="nav-link">
                                                 Cadastrar Cliente
                                             </Link>
@@ -66,7 +66,7 @@ export default class App extends Component {
                                 <Route exact path="/" component={Home} />
                                 <Route
                                     exact
-                                    path="/clientes/cadastro"
+                                    path="/clientes"
                                     component={CadastroClientes}
                                 />
                                 <Route
