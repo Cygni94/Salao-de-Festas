@@ -37,13 +37,7 @@ class CadastroClientes extends Component {
                     className="col-md-5"
                     onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                     <h3>Cadastrar novo cliente</h3>
-                    <Field
-                        label="ID"
-                        name="id"
-                        component={
-                            this.renderField // this is a custom prop
-                        }
-                    />
+
                     <Field
                         label="Nome"
                         name="nome"
