@@ -38,6 +38,13 @@ class CadastroClientes extends Component {
                     onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                     <h3>Cadastrar novo cliente</h3>
                     <Field
+                        label="ID"
+                        name="id"
+                        component={
+                            this.renderField // this is a custom prop
+                        }
+                    />
+                    <Field
                         label="Nome"
                         name="nome"
                         component={
@@ -59,6 +66,14 @@ class CadastroClientes extends Component {
                         placeholder="Phone Number"
                         component={this.renderField}
                         normalize={normalizePhone}
+                    />
+                    <Field
+                        label="Data de nascimento"
+                        name="dataNasc"
+                        type="date"
+                        component={
+                            this.renderField // this is a custom prop
+                        }
                     />
                     <button type="submit" className="btn btn-primary">
                         Submit
