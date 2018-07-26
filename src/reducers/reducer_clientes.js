@@ -2,8 +2,8 @@ import _ from "lodash";
 
 import {
     FETCH_CLIENTES,
-    FETCH_CLIENTE,
-    DELETE_CLIENTE,
+    //FETCH_CLIENTE,
+    //DELETE_CLIENTE,
     CREATE_CLIENTE,
 } from "../actions/clientes";
 
