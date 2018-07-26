@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 
+import Clientes from "./containers/Clientes";
 import CadastroClientes from "./containers/CadastroClientes";
 import CadastroFuncionario from "./containers/CadastroFuncionario";
 import Home from "./containers/Home";
@@ -46,35 +47,49 @@ export default class App extends Component {
                                         </li>
                                         <li className="nav-item">
                                             <Link
-                                                to="/clientes/cadastro"
+                                                to="/clientes"
                                                 className="nav-link">
-                                                Cadastrar Cliente
+                                                Clientes
                                             </Link>
                                         </li>
                                         <li className="nav-item">
                                             <Link
                                                 to="/funcionarios/cadastro"
                                                 className="nav-link">
-                                                Cadastrar Funcionário
+                                                Funcionários
                                             </Link>
                                         </li>
                                     </ul>
                                 </div>
                                 <hr />
                             </nav>
-                            <Switch>
-                                <Route exact path="/" component={Home} />
-                                <Route
-                                    exact
-                                    path="/clientes/cadastro"
-                                    component={CadastroClientes}
-                                />
-                                <Route
-                                    exact
-                                    path="/funcionarios/cadastro"
-                                    component={CadastroFuncionario}
-                                />
-                            </Switch>
+                            <main className="row">
+                                <div className="col-md-9">
+                                    <Switch>
+                                        <Route
+                                            exact
+                                            path="/"
+                                            component={Home}
+                                        />
+                                        <Route
+                                            exact
+                                            path="/clientes"
+                                            component={Clientes}
+                                        />
+                                        <Route
+                                            exact
+                                            path="/funcionarios/cadastro"
+                                            component={CadastroFuncionario}
+                                        />
+                                    </Switch>
+                                </div>
+                                <aside className="col-md-3">
+                                    <div>
+                                        AQUI VIRÃO CALENDARIO, E LISTA DE
+                                        TELEFONES
+                                    </div>
+                                </aside>
+                            </main>
                         </div>
                     </Router>
                 </div>
