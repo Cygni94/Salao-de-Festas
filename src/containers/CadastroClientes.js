@@ -55,7 +55,6 @@ class CadastroClientes extends Component {
                     <Field
                         label="Telefone"
                         name="phone"
-                        component="input"
                         type="text"
                         placeholder="Phone Number"
                         component={this.renderField}

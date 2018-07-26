@@ -2,8 +2,8 @@ import _ from "lodash";
 
 import {
     FETCH_CLIENTES,
-    //FETCH_CLIENTE,
-    //DELETE_CLIENTE,
+    FETCH_CLIENTE,
+    DELETE_CLIENTE,
     CREATE_CLIENTE,
 } from "../actions/clientes";
 
@@ -16,11 +16,11 @@ export default function(state = INITIAL_STATE, action) {
             return { ...state, ...newClientes };
         case CREATE_CLIENTE:
             return { ...state, [action.payload.data.id]: action.payload.data };
-        /*         case FETCH_CLIENTE:
+        case FETCH_CLIENTE:
             return { ...state, [action.payload.data.id]: action.payload.data };
-        case DELETE_POST:
+        case DELETE_CLIENTE:
             return _.omit(state, action.payload.data.id);
- */ default:
+        default:
             return state;
     }
 }
