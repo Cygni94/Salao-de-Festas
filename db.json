@@ -1,11 +1,11 @@
 {
     "clientes": [
         {
-            "id": "",
-            "nome": "",
-            "endereco": "",
-            "telefone": "",
-            "dataNasc": ""
+            "id": "1",
+            "nome": "Cristiano Coelho de Jesus Souza",
+            "endereco": "Rua Pouso Alegre, 235, bairro Capelinha, Betim-MG",
+            "telefone": "(31)98587-7928",
+            "dataNasc": "15/03/1994"
         }
     ],
     "funcionarios": [
