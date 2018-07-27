@@ -21,7 +21,6 @@ class ListaClientes extends Component {
             );
         });
     }
-
     render() {
         return (
             <div>

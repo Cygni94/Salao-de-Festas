@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 
-import Clientes from "./containers/Clientes";
+//import Clientes from "./containers/Clientes";
 //import CadastroClientes from "./containers/CadastroClientes";
+import ListaClientes from "./containers/ListaClientes";
 import CadastroFuncionario from "./containers/CadastroFuncionario";
 import Home from "./containers/Home";
 
@@ -74,7 +75,7 @@ export default class App extends Component {
                                         <Route
                                             exact
                                             path="/clientes"
-                                            component={Clientes}
+                                            component={ListaClientes}
                                         />
                                         <Route
                                             exact
