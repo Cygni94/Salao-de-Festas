@@ -6,11 +6,12 @@ export const FETCH_CLIENTE = "FETCH_CLIENTE";
 export const DELETE_CLIENTE = "DELETE_CLIENTE";
 
 const ROOT_URL =
-    "https://my-json-server.typicode.com/coelhojs/salao-de-festas/clientes";
+    "https://my-json-server.typicode.com/coelhojs/salao-de-festas/db";
 
-export function fetchClientes() {
-    const request = axios.get(`${ROOT_URL}`);
-
+export function fetchClientes(state = {}, action) {
+    const request = fetch(`${ROOT_URL}`).then(function(response) {
+        return response.json();
+    });
     return {
         type: FETCH_CLIENTES,
         payload: request,
