@@ -12,14 +12,20 @@ const INITIAL_STATE = {};
 export default function(state = INITIAL_STATE, action) {
     switch (action.type) {
         case FETCH_CLIENTES:
-            const newClientes = _.mapKeys(action.payload.data, "id");
+            const newClientes = _.mapKeys(action.payload.clientes, "id");
             return { ...state, ...newClientes };
         case CREATE_CLIENTE:
-            return { ...state, [action.payload.data.id]: action.payload.data };
+            return {
+                ...state,
+                [action.payload.clientes.id]: action.payload.clientes,
+            };
         case FETCH_CLIENTE:
-            return { ...state, [action.payload.data.id]: action.payload.data };
+            return {
+                ...state,
+                [action.payload.clientes.id]: action.payload.clientes,
+            };
         case DELETE_CLIENTE:
-            return _.omit(state, action.payload.data.id);
+            return _.omit(state, action.payload.clientes.id);
         default:
             return state;
     }

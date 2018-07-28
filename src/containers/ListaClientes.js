@@ -6,6 +6,7 @@ import { fetchClientes } from "../actions/clientes";
 class ListaClientes extends Component {
     componentWillMount() {
         this.props.fetchClientes();
+        console.log(this.props.fetchClientes());
     }
 
     renderClientes() {
