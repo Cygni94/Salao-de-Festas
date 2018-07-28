@@ -19,7 +19,7 @@ export function fetchClientes(state = {}, action) {
 }
 
 export function createCliente(props, cb) {
-    const request = axios.post(`${ROOT_URL}/`, props).then(res => {
+    const request = axios.post(`${ROOT_URL}`, props).then(res => {
         cb();
         return res;
     });
