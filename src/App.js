@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
-import ListaClientes from "./containers/ListaClientes";
+import Clientes from "./containers/Clientes";
 import CadastroFuncionario from "./containers/CadastroFuncionario";
 import Home from "./containers/Home";
 
-import "bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/css/style.css";
 
 export default class App extends Component {
     render() {
@@ -51,7 +50,6 @@ export default class App extends Component {
                                     </li>
                                 </ul>
                             </div>
-                            <hr />
                         </nav>
                         <main className="row">
                             <div className="col-md-9">
@@ -60,7 +58,7 @@ export default class App extends Component {
                                     <Route
                                         exact
                                         path="/clientes"
-                                        component={ListaClientes}
+                                        component={Clientes}
                                     />
                                     <Route
                                         exact

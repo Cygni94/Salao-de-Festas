@@ -7,9 +7,6 @@ import normalizePhone from "../vendor/normalizePhone";
 class CadastroClientes extends Component {
     onSubmit(props) {
         this.props.createCliente(props, () => {
-            // blog post has been created, navigate the user to the index
-            // We navigate by calling this.props.history.push with the
-            // new path to navigate to.
             this.props.history.push("/");
         });
     }
@@ -37,6 +34,14 @@ class CadastroClientes extends Component {
                     className="col-md-5"
                     onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                     <h3>Cadastrar novo cliente</h3>
+
+                    <Field
+                        label="ID"
+                        name="id"
+                        component={
+                            this.renderField // this is a custom prop
+                        }
+                    />
 
                     <Field
                         label="Nome"
