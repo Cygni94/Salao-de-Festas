@@ -14,18 +14,18 @@ export default function(state = INITIAL_STATE, action) {
         case FETCH_CLIENTE:
             return {
                 ...state,
-                [action.payload.id]: action.payload,
+                [action.payload.clientes.id]: action.payload.clientes,
             };
         case FETCH_CLIENTES:
-            const newClientes = _.mapKeys(action.payload, "id");
+            const newClientes = _.mapKeys(action.payload.clientes, "id");
             return { ...state, ...newClientes };
         case CREATE_CLIENTE:
             return {
                 ...state,
-                [action.payload.id]: action.payload,
+                [action.payload.clientes.id]: action.payload.clientes,
             };
         case DELETE_CLIENTE:
-            return _.omit(state, action.payload.id);
+            return _.omit(state, action.payload.clientes.id);
         default:
             return state;
     }

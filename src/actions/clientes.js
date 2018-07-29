@@ -5,10 +5,11 @@ export const CREATE_CLIENTE = "CREATE_CLIENTE";
 export const FETCH_CLIENTE = "FETCH_CLIENTE";
 export const DELETE_CLIENTE = "DELETE_CLIENTE";
 
-const ROOT_URL = "http://localhost:3666/clientes/";
+const ROOT_URL = "http://localhost:3666";
 
 export function fetchClientes(state = {}, action) {
-    const request = fetch(`${ROOT_URL}`).then(function(response) {
+    const request = fetch(`${ROOT_URL}/clientes`).then(function(response) {
+        console.log(response.json());
         return response.json();
     });
     return {
@@ -18,7 +19,7 @@ export function fetchClientes(state = {}, action) {
 }
 
 export function createCliente(props, cb) {
-    const request = axios.post(`${ROOT_URL}`, props).then(res => {
+    const request = axios.post(`${ROOT_URL}/clientes`, props).then(res => {
         cb();
         return res;
     });
@@ -30,7 +31,7 @@ export function createCliente(props, cb) {
 }
 
 export function fetchCliente(id) {
-    const request = axios.get(`${ROOT_URL}/${id}`);
+    const request = axios.get(`${ROOT_URL}/clientes/${id}`);
 
     return {
         type: FETCH_CLIENTE,
@@ -39,7 +40,7 @@ export function fetchCliente(id) {
 }
 
 export function deleteCliente(id, cb) {
-    const request = axios.delete(`${ROOT_URL}/${id}`).then(res => {
+    const request = axios.delete(`${ROOT_URL}/clientes/${id}`).then(res => {
         cb();
         return res;
     });
