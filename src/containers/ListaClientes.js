@@ -2,7 +2,6 @@ import _ from "lodash";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchClientes } from "../actions/clientes";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import CadastroClientes from "./CadastroClientes";
 
@@ -27,20 +26,6 @@ class ListaClientes extends Component {
     render() {
         return (
             <div>
-                <Router>
-                    <div>
-                        <Route
-                            exact
-                            path="/clientes/cadastro"
-                            component={CadastroClientes}
-                        />
-                        <Link
-                            to="/clientes/cadastro"
-                            className="btn btn-danger">
-                            Adicionar
-                        </Link>
-                    </div>
-                </Router>
                 <table className="table">
                     <thead className="thead-light">
                         <tr>

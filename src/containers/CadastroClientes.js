@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import { createCliente } from "../actions/clientes";
 import normalizePhone from "../vendor/normalizePhone";
+import { Link } from "react-router-dom";
 
 class CadastroClientes extends Component {
     onSubmit(props) {
@@ -67,6 +68,9 @@ class CadastroClientes extends Component {
                     <button type="submit" className="btn btn-primary">
                         Submit
                     </button>
+                    <Link to="/clientes" className="btn btn-danger">
+                        Cancelar
+                    </Link>
                 </form>
             </div>
         );
