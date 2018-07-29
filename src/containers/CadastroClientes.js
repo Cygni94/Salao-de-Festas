@@ -6,9 +6,8 @@ import normalizePhone from "../vendor/normalizePhone";
 
 class CadastroClientes extends Component {
     onSubmit(props) {
-        console.log(props);
         this.props.createCliente(props, () => {
-            this.props.history.push("/");
+            this.props.history.push("/clientes");
         });
     }
 
