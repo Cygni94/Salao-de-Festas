@@ -1,31 +1,31 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
-import { fetchPost, deletePost } from "../actions/index";
+import { fetchCliente, deleteCliente } from "../actions/clientes";
 import { Link } from "react-router-dom";
 
-class PostsShow extends Component {
+class ExibirCliente extends Component {
     componentWillMount() {
-        if (!this.props.post) {
+        if (!this.props.clientes) {
             // grab post id from route params
             const { id } = this.props.match.params;
-            this.props.fetchPost(id);
+            this.props.fetchCliente(id);
         }
     }
 
     onDeleteClick() {
         // get post id from route params
         const { id } = this.props.match.params;
-        this.props.deletePost(id, () => {
+        this.props.deleteCliente(id, () => {
             // post was deleted.
             // navigate user to new path
-            this.props.history.push("/");
+            this.props.history.push("/clientes");
         });
     }
 
     render() {
-        const { post } = this.props;
+        const { clientes } = this.props;
 
-        if (!post) {
+        if (!clientes) {
             return <div>Loading...</div>;
         }
 
@@ -37,9 +37,10 @@ class PostsShow extends Component {
                     onClick={this.onDeleteClick.bind(this)}>
                     Delete Post
                 </button>
-                <h3>{post.title}</h3>
-                <h6>Categories: {post.categories}</h6>
-                <p>{post.content}</p>
+                <h3>{clientes.nome}</h3>
+                <p>Endereço: {clientes.endereco}</p>
+                <p>{clientes.telefone}</p>
+                <p>{clientes.dataNasc}</p>
             </div>
         );
     }
@@ -47,10 +48,10 @@ class PostsShow extends Component {
 
 function mapStateToProps(state, ownProps) {
     // react-router changed props and nested params in props.match
-    return { post: state.posts[ownProps.match.params.id] };
+    return { clientes: state.clientes[ownProps.match.params.id] };
 }
 
 export default connect(
     mapStateToProps,
-    { fetchPost, deletePost }
-)(PostsShow);
+    { fetchCliente, deleteCliente }
+)(ExibirCliente);

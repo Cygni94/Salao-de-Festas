@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import ListaClientes from "./ListaClientes";
 import CadastroClientes from "./CadastroClientes";
+import ExibirCliente from "./ExibirCliente";
 
 class Clientes extends Component {
     render() {
@@ -26,6 +27,11 @@ class Clientes extends Component {
                             exact
                             path="/clientes/cadastro"
                             component={CadastroClientes}
+                        />
+                        <Route
+                            exact
+                            path="/clientes/cadastro/:id"
+                            component={ExibirCliente}
                         />
                     </Switch>
                 </div>
