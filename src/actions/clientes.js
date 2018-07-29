@@ -5,8 +5,7 @@ export const CREATE_CLIENTE = "CREATE_CLIENTE";
 export const FETCH_CLIENTE = "FETCH_CLIENTE";
 export const DELETE_CLIENTE = "DELETE_CLIENTE";
 
-const ROOT_URL =
-    "https://my-json-server.typicode.com/coelhojs/salao-de-festas/db";
+const ROOT_URL = "http://localhost:3666/clientes/";
 
 export function fetchClientes(state = {}, action) {
     const request = fetch(`${ROOT_URL}`).then(function(response) {
