@@ -11,7 +11,6 @@ export function fetchClientes(state = {}, action) {
     const request = fetch(`${ROOT_URL}/clientes`).then(function(response) {
         return response.json();
     });
-    console.log(request);
     return {
         type: FETCH_CLIENTES,
         payload: request,

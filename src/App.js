@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    NavLink,
+    Link,
+} from "react-router-dom";
 
 import Clientes from "./containers/Clientes";
 import CadastroFuncionario from "./containers/CadastroFuncionario";
@@ -28,22 +34,32 @@ export default class App extends Component {
                             className="collapse navbar-collapse"
                             id="navbarTogglerDemo02">
                             <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-                                <li className="nav-item active">
-                                    <Link to="/" className="nav-link">
-                                        Home
-                                    </Link>
+                                <li className="nav-item">
+                                    <NavLink
+                                        exact
+                                        to="/"
+                                        className="nav-link"
+                                        activeClassName="active">
+                                        Início
+                                    </NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/clientes" className="nav-link">
+                                    <NavLink
+                                        exact
+                                        to="/clientes"
+                                        className="nav-link"
+                                        activeClassName="active">
                                         Clientes
-                                    </Link>
+                                    </NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link
+                                    <NavLink
+                                        exact
                                         to="/funcionarios/cadastro"
-                                        className="nav-link">
+                                        className="nav-link"
+                                        activeClassName="active">
                                         Funcionários
-                                    </Link>
+                                    </NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -52,7 +68,11 @@ export default class App extends Component {
                         <div className="col-md-9">
                             <Switch>
                                 <Route exact path="/" component={Home} />
-                                <Route path="/clientes" component={Clientes} />
+                                <Route
+                                    exact
+                                    path="/clientes"
+                                    component={Clientes}
+                                />
                                 <Route
                                     exact
                                     path="/funcionarios/cadastro"
