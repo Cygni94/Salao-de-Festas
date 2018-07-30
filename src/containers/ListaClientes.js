@@ -18,7 +18,9 @@ class ListaClientes extends Component {
                     <td>{clientes.telefone}</td>
                     <td>{clientes.dataNasc}</td>
                     <td>
-                        <Link to="/clientes/cadastro/:id">Editar</Link>
+                        <Link to={`/clientes/editar/${clientes.id}`}>
+                            Editar
+                        </Link>
                     </td>
                 </tr>
             );

@@ -30,7 +30,7 @@ class Clientes extends Component {
                         />
                         <Route
                             exact
-                            path="/clientes/cadastro/:id"
+                            path="/clientes/editar/:id"
                             component={ExibirCliente}
                         />
                     </Switch>
