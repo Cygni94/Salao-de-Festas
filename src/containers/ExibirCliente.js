@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchCliente, deleteCliente } from "../actions/clientes";
 import { Link } from "react-router-dom";
+import { Field, reduxForm } from "redux-form";
 
 class ExibirCliente extends Component {
     componentWillMount() {
@@ -31,16 +32,15 @@ class ExibirCliente extends Component {
 
         return (
             <div>
-                <Link to="/">Back To Index</Link>
+                <p>Nome: {clientes.nome} </p>
+                <p>Endereço: {clientes.endereco}</p>
+                <p>{clientes.telefone}</p>
+                <p>{clientes.dataNasc}</p>
                 <button
                     className="btn btn-danger pull-xs-right"
                     onClick={this.onDeleteClick.bind(this)}>
                     Delete Post
                 </button>
-                <h3>{clientes.nome}</h3>
-                <p>Endereço: {clientes.endereco}</p>
-                <p>{clientes.telefone}</p>
-                <p>{clientes.dataNasc}</p>
             </div>
         );
     }

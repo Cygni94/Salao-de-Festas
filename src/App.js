@@ -7,9 +7,9 @@ import {
     Link,
 } from "react-router-dom";
 
-import Clientes from "./containers/Clientes";
-import CadastroFuncionario from "./containers/CadastroFuncionario";
-import Home from "./containers/Home";
+import Clientes from "./components/Clientes";
+import Funcionarios from "./components/Funcionarios";
+import Home from "./components/Home";
 
 import "./styles/css/style.css";
 
@@ -55,7 +55,7 @@ export default class App extends Component {
                                 <li className="nav-item">
                                     <NavLink
                                         exact
-                                        to="/funcionarios/cadastro"
+                                        to="/funcionarios"
                                         className="nav-link"
                                         activeClassName="active">
                                         Funcionários
@@ -75,8 +75,8 @@ export default class App extends Component {
                                 />
                                 <Route
                                     exact
-                                    path="/funcionarios/cadastro"
-                                    component={CadastroFuncionario}
+                                    path="/funcionarios"
+                                    component={Funcionarios}
                                 />
                             </Switch>
                         </div>
